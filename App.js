@@ -1,20 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useEffect, useState} from "react";
+import {Alert, View} from "react-native";
+import * as Location from 'expo-location';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+import {getWeathers} from "./src/utils/api/weather";
+import Loading from "./src/components/Loading";
+
+const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getPermissionUser = async () => {
+    try {
+      await Location.requestForegroundPermissionsAsync();
+      const {coords: {latitude, longitude}} = await Location.getCurrentPositionAsync();
+
+      const {data} = await getWeathers(latitude, longitude);
+
+      Alert.alert('data', JSON.stringify(data))
+
+      setIsLoading(false)
+    } catch (e) {
+      Alert.alert('Not signal', 'Very Sad :(');
+    }
+  }
+
+  useEffect(() => {
+    getPermissionUser()
+      .catch(console.log);
+  }, [])
+
+  return isLoading ? (
+    <Loading/>
+  ) : (
+    <View/>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
