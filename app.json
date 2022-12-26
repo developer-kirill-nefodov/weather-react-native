@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "WeatherReactNative",
-    "slug": "WeatherReactNative",
+    "slug": "weather",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -26,10 +26,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.kirillneff.weather"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3ff9c5de-078f-4fc8-a725-ad72b6ff40a3"
+      }
+    },
+    "owner": "kirillneff"
   }
 }
