@@ -1,25 +1,33 @@
 import React, {useEffect, useState} from "react";
-import {Alert, View} from "react-native";
+import {Alert} from "react-native";
 import * as Location from 'expo-location';
 
 import {getWeathers} from "./src/utils/api/weather";
 import Loading from "./src/components/Loading";
+import Weather from "./src/components/Weather";
+import Error from "./src/components/Error";
 
 const App = () => {
+  const [temp, setTemp] = useState(0);
+  const [weather, setWeather] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const getPermissionUser = async () => {
+    setIsError(false);
+    setIsLoading(true);
     try {
       await Location.requestForegroundPermissionsAsync();
       const {coords: {latitude, longitude}} = await Location.getCurrentPositionAsync();
 
-      const {data} = await getWeathers(latitude, longitude);
+      const {data: {main, weather}} = await getWeathers(latitude, longitude);
 
-      Alert.alert('data', JSON.stringify(data))
-
-      setIsLoading(false)
+      setTemp(main.temp);
+      setWeather(weather[0])
+      setIsLoading(false);
     } catch (e) {
       Alert.alert('Not signal', 'Very Sad :(');
+      setIsError(true);
     }
   }
 
@@ -28,10 +36,17 @@ const App = () => {
       .catch(console.log);
   }, [])
 
+  if(isError) {
+    return <Error getPermissionUser={getPermissionUser}/>
+  }
+
   return isLoading ? (
     <Loading/>
   ) : (
-    <View/>
+    <Weather
+      temp={temp}
+      weather={weather}
+    />
   );
 }
 

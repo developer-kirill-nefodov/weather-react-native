@@ -6,7 +6,8 @@ export const getWeathers = (lat, lon) => {
     params: {
       lat,
       lon,
-      appid: WEATHER_API_ID
+      appid: WEATHER_API_ID,
+      units: 'metric'
     }}
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import Lottie from 'lottie-react-native';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,7 +17,12 @@ const styles = StyleSheet.create({
 const Loading = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Loading Weather...</Text>
+      <StatusBar barStyle='dark-content'/>
+      <Lottie
+        loop
+        autoPlay
+        source={require('./animation.json')}
+      />
     </View>
   );
 };
