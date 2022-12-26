@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'lottie-react-native';
-import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet, View} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {

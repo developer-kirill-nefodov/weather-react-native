@@ -11,6 +11,8 @@ Run in dev mode
 ```sh
 yarn add all
 
+cp .env.exemple .env
+
 npm start
 ```
 
@@ -18,6 +20,7 @@ npm start
 * Gradients: `https://uigradients.com/`
 * Weather API: `https://openweathermap.org/`
 * Animation: `https://lottiefiles.com/`
+
 
 ## Technologies:
 * React

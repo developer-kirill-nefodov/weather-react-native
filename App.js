@@ -37,7 +37,9 @@ const App = () => {
   }, [])
 
   if(isError) {
-    return <Error getPermissionUser={getPermissionUser}/>
+    return (
+      <Error getPermissionUser={getPermissionUser}/>
+    );
   }
 
   return isLoading ? (

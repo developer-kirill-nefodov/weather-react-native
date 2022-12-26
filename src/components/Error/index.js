@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {StatusBar, StyleSheet, Text, View} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -36,5 +37,9 @@ const Error = ({getPermissionUser}) => {
     </View>
   );
 };
+
+Error.propTypes = {
+  getPermissionUser: PropTypes.func.isRequired
+}
 
 export default Error;
