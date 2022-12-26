@@ -2,7 +2,7 @@
 
 Git clone project
 ```
-git clone git@github.com:developer-kirill-nefodov/WeatherReactNative.git
+git clone https://github.com/developer-kirill-nefodov/WeatherReactNative.git
 
 cd ./WeatherReactNative/
 ```
@@ -17,9 +17,9 @@ npm start
 ```
 
 ## Description
-* Gradients: `https://uigradients.com/`
-* Weather API: `https://openweathermap.org/`
-* Animation: `https://lottiefiles.com/`
+* Gradients: https://uigradients.com/
+* Weather API: https://openweathermap.org/
+* Animation: https://lottiefiles.com/
 
 
 ## Technologies:
