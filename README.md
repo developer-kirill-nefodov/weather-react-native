@@ -9,7 +9,7 @@ cd ./WeatherReactNative/
 
 Run in dev mode
 ```sh
-yarn add all
+yarn install
 
 cp .env.exemple .env
 
