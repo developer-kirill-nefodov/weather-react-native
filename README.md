@@ -2,7 +2,7 @@
 
 Git clone project
 ```
-git clone https://github.com/developer-kirill-nefodov/WeatherReactNative.git
+git clone https://github.com/developer-kirill-nefodov/weather-react-native.git
 
 cd ./WeatherReactNative/
 ```
