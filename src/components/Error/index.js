@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import Lottie from "lottie-react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -8,19 +9,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  animation: {
+    width: 200,
+    height: 200
+  },
   text: {
-    fontSize: 30,
+    fontSize: 20,
     textAlign: 'center',
     color: 'red'
   },
   clickText: {
     color: 'blue',
-    fontSize: 20,
-    textDecorationLine: 'underline',
-    width: '100%',
-    textAlign: 'right',
-    paddingRight: 20,
-    marginTop: 10
+    textDecorationLine: 'underline'
   }
 });
 
@@ -28,13 +28,21 @@ const Error = ({getPermissionUser}) => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle='light-content'/>
-      <Text style={styles.text}>
-        For the application to work, enable geolocation
-      </Text>
-      <Text style={styles.clickText} onPress={getPermissionUser}>
-        Click here
-      </Text>
-    </View>
+      <Lottie
+        loop
+        autoPlay
+        style={styles.animation}
+        source={require('./error-animation.json')}
+      />
+      <View>
+        <Text style={styles.text}>
+          For the application to work, enable
+          geolocation <Text style={styles.clickText} onPress={getPermissionUser}>
+            Click here
+          </Text>
+        </Text>
+      </View>
+  </View>
   );
 };
 

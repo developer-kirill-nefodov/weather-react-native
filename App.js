@@ -21,7 +21,7 @@ const App = () => {
       const {coords: {latitude, longitude}} = await Location.getCurrentPositionAsync();
 
       const {data: {main, weather}} = await getWeathers(latitude, longitude);
-
+      console.log(main)
       setTemp(main.temp);
       setWeather(weather[0])
       setIsLoading(false);

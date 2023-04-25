@@ -21,7 +21,7 @@ const Loading = () => {
       <Lottie
         loop
         autoPlay
-        source={require('./animation.json')}
+        source={require('./loading-animation.json')}
       />
     </View>
   );
